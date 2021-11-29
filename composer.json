@@ -1,0 +1,17 @@
+{
+    "name": "serkancelik17/api-base",
+    "description": "Base Codes for All MerchantCenter APIs",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "guzzlehttp/guzzle": "7.4",
+        "php": "^8.0"
+    },
+    "authors": [
+        {
+            "name": "Serkan Celik",
+            "email": "serkancelik1734@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
