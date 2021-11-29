@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "\ApiBase\\": "src/"
+            "Serkancelik17\\ApiBase\\": "src/"
         }
     },
     "authors": [
