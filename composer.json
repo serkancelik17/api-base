@@ -10,7 +10,8 @@
     "autoload": {
         "psr-4": {
             "Serkancelik17\\ApiBase\\": "src/"
-        },
+        }
+    },
     "authors": [
         {
             "name": "Serkan Celik",
