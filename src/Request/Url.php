@@ -1,8 +1,8 @@
 <?php
 
-namespace Serkancelik17\ApiBase\Request;
+namespace ApiBase\Request;
 
-use Serkancelik17\ApiBase\Request\QueryParameter\IQueryParameter;
+use ApiBase\Request\QueryParameter\IQueryParameter;
 
 class Url
 {

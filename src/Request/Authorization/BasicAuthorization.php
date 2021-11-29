@@ -1,6 +1,6 @@
 <?php
 
-namespace Serkancelik17\ApiBase\Request\Authorization;
+namespace ApiBase\Request\Authorization;
 
 class BasicAuthorization  extends AuthorizationAbstract implements IAuthorization
 {
