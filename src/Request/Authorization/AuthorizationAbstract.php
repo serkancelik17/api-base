@@ -1,6 +1,6 @@
 <?php
 
-namespace ApiBase\Request\Authorization;
+namespace Serkancelik17\ApiBase\Request\Authorization;
 
 class AuthorizationAbstract
 {

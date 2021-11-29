@@ -1,6 +1,6 @@
 <?php
 
-namespace ApiBase\Response;
+namespace Serkancelik17\ApiBase\Response;
 
 interface IResponse
 {

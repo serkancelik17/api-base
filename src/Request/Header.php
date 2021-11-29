@@ -1,8 +1,8 @@
 <?php
 
-namespace ApiBase\Request;
+namespace Serkancelik17\ApiBase\Request;
 
-use ApiBase\Models\Parameter;
+use Serkancelik17\ApiBase\Models\Parameter;
 
 class Header {
     /** @var Parameter[] */

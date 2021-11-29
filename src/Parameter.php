@@ -1,6 +1,6 @@
 <?php
 
-namespace ApiBase\Models;
+namespace Serkancelik17\ApiBase\Models;
 
 class Parameter
 {

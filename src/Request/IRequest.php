@@ -1,8 +1,8 @@
 <?php
 
-namespace ApiBase\Request;
+namespace Serkancelik17\ApiBase\Request;
 
-use ApiBase\Request\Authorization\IAuthorization;
+use Serkancelik17\ApiBase\Request\Authorization\IAuthorization;
 use Illuminate\Http\Response;
 
 interface IRequest

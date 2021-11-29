@@ -1,7 +1,7 @@
 <?php
-namespace ApiBase\Request\Authorization;
+namespace Serkancelik17\ApiBase\Request\Authorization;
 
-use ApiBase\Request\Parameter;
+use Serkancelik17\ApiBase\Request\Parameter;
 
 interface IAuthorization
 {

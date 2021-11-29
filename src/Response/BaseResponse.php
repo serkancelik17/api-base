@@ -1,7 +1,7 @@
 <?php
-namespace ApiBase\Response;
+namespace Serkancelik17\ApiBase\Response;
 
-use ApiBase\Request\IRequest;
+use Serkancelik17\ApiBase\Request\IRequest;
 
 abstract class BaseResponse
 {
