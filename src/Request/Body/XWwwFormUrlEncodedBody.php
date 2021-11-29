@@ -1,8 +1,8 @@
 <?php
 
-namespace Serkancelik17\ApiBase\Request\Body;
+namespace ApiBase\Request\Body;
 
-use Serkancelik17\ApiBase\Models\Parameter;
+use ApiBase\Models\Parameter;
 use App\Request\Body\IBody;
 
 class XWwwFormUrlEncodedBody extends RawBody implements IBody

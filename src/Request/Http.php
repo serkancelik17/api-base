@@ -1,6 +1,6 @@
 <?php
 
-namespace Serkancelik17\ApiBase\Request;
+namespace ApiBase\Request;
 
 class Http
 {

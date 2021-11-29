@@ -1,6 +1,6 @@
 <?php
 
-namespace Serkancelik17\ApiBase\Request\Body;
+namespace ApiBase\Request\Body;
 
 interface IBody
 {

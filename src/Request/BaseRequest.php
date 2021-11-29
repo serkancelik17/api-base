@@ -1,13 +1,13 @@
 <?php
-namespace Serkancelik17\ApiBase\Request;
+namespace ApiBase\Request;
 
-use App\Request\Body\IBody;
+use ApiBase\Request\Body\IBody;
 use GuzzleHttp\Client;
-use Serkancelik17\ApiBase\Parameter;
-use Serkancelik17\ApiBase\Request\Authorization\ApiKeyAuthorization;
-use Serkancelik17\ApiBase\Request\Authorization\BasicAuthorization;
-use Serkancelik17\ApiBase\Request\Authorization\BearerTokenAuthorization;
-use Serkancelik17\ApiBase\Request\Authorization\IAuthorization;
+use ApiBase\Parameter;
+use ApiBase\Request\Authorization\ApiKeyAuthorization;
+use ApiBase\Request\Authorization\BasicAuthorization;
+use ApiBase\Request\Authorization\BearerTokenAuthorization;
+use ApiBase\Request\Authorization\IAuthorization;
 
 abstract class BaseRequest
 {
