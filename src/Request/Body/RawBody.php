@@ -2,8 +2,7 @@
 
 namespace Serkancelik17\ApiBase\Request\Body;
 
-use Serkancelik17\ApiBase\Models\Parameter;
-use App\Request\Body\IBody;
+use Serkancelik17\ApiBase\Parameter;
 
 class RawBody implements IBody
 {

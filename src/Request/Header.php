@@ -2,7 +2,8 @@
 
 namespace Serkancelik17\ApiBase\Request;
 
-use Serkancelik17\ApiBase\Models\Parameter;
+
+use Serkancelik17\ApiBase\Parameter;
 
 class Header {
     /** @var Parameter[] */
