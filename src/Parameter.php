@@ -1,6 +1,6 @@
 <?php
 
-namespace ApiBase;
+namespace Serkancelik17\ApiBase;
 
 class Parameter
 {
