@@ -23,3 +23,5 @@ $authorization = new \Serkancelik17\ApiBase\Request\Authorization\BasicAuthoriza
 $request = new NewRequest(new \Serkancelik17\ApiBase\Request\Header(),
     $authorization,
     $url);
+
+var_dump($request->runWithCurl());

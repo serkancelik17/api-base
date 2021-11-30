@@ -75,6 +75,34 @@ abstract class BaseRequest
      return $response->getBody();
     }
 
+    public function runWithCurl() {
+            $ch = curl_init();
+            $url = $this->getUrl()->get();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->method);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HEADER, false);
+            curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+
+            //curl_setopt($ch, CURLOPT_USERAGENT, $this->userAgent());
+
+            if ($this->getMethod() == 'POST') {
+                curl_setopt($ch, CURLOPT_POST, 1);
+                //curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestData));
+            }
+            $header[] = "Authorization: Basic ".base64_encode($this->getAuthorization()->getUsername().":".$this->getAuthorization()->getPassword());
+            curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
+            $response = trim(curl_exec($ch));
+            if (empty($response)) {
+                throw new \Exception("Trendyol boş yanıt döndürdü.");
+            }
+
+            $response = json_decode($response);
+            curl_close($ch);
+            return $response;
+        }
+
     /** GETTER AND SETTERS */
 
     /**
