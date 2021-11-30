@@ -36,40 +36,43 @@ abstract class BaseRequest
 
 
     public function run() : String {
+        $client = new Client();
         $url = $this->getUrl()->get();
         $bodyRaw = ($this->getBody()) ? $this->getBody()->get() : null;
 
-        $client = new Client();
-        $res = $client->request('GET',$url);
 
-        dump($res->getBody());exit;
-
-        $response = Http::withOptions(['debug' => $this->debug]);
-
-        if($bodyRaw)
-            $response = $response->withBody($bodyRaw,$this->getBody()->getContentType());
+//        if($bodyRaw)
+//            $response = $response->withBody($bodyRaw,$this->getBody()->getContentType());
 
 
         //$headers = array_merge($this->header->getParameters(true),$this->authorization->getParameters(true));
         if($this->authorization instanceof BasicAuthorization) {
-            $response = $response->withBasicAuth($this->authorization->getUserName(),$this->authorization->getPassword());
+            $credentials = base64_encode($this->authorization->getUserName().":".$this->authorization->getPassword());
+            $this->header->setParameters(array_merge(
+                    $this->header->getParameters(),
+                    [new Parameter("Authorization","Basic ".$credentials)])
+            );
+            //$response = $response->withBasicAuth($this->authorization->getUserName(),$this->authorization->getPassword());
         } elseif ($this->authorization instanceof ApiKeyAuthorization) {
             $this->header->setParameters(array_merge(
-                $this->header->getParameters(),
-                [new Parameter($this->authorization->getKey(),$this->authorization->getValue())])
+                    $this->header->getParameters(),
+                    [new Parameter($this->authorization->getKey(), $this->authorization->getValue())])
             );
-        } elseif ($this->authorization instanceof BearerTokenAuthorization) {
-            $response = $response->withToken($this->authorization->getToken());
         }
+//        } elseif ($this->authorization instanceof BearerTokenAuthorization) {
+//            $response = $response->withToken($this->authorization->getToken());
+//        }
 
-        $response = $response->withHeaders($this->getHeader()->getParameters(true));
+        $response = $client->request($this->getMethod(),$url,['headers' => $this->getHeader()->getParameters(true)]);
 
-        if($this->getMethod() == "GET")
-            $response = $response->get($url);
-        elseif($this->getMethod() == 'POST')
-            $response = $response->post($url);
+        //$response = $response->withHeaders($this->getHeader()->getParameters(true));
+//
+//        if($this->getMethod() == "GET")
+//            $response = $response->get($url);
+//        elseif($this->getMethod() == 'POST')
+//            $response = $response->post($url);
 
-     return $response->body();
+     return $response->getBody();
     }
 
     /** GETTER AND SETTERS */
