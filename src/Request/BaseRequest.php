@@ -35,47 +35,47 @@ abstract class BaseRequest
     }
 
 
-    public function run() : String {
-        $client = new Client();
-        $url = $this->getUrl()->get();
-        $bodyRaw = ($this->getBody()) ? $this->getBody()->get() : null;
-
-
-//        if($bodyRaw)
-//            $response = $response->withBody($bodyRaw,$this->getBody()->getContentType());
-
-
-        //$headers = array_merge($this->header->getParameters(true),$this->authorization->getParameters(true));
-        if($this->authorization instanceof BasicAuthorization) {
-            $credentials = base64_encode($this->authorization->getUserName().":".$this->authorization->getPassword());
-            $this->header->setParameters(array_merge(
-                    $this->header->getParameters(),
-                    [new Parameter("Authorization","Basic ".$credentials)])
-            );
-            //$response = $response->withBasicAuth($this->authorization->getUserName(),$this->authorization->getPassword());
-        } elseif ($this->authorization instanceof ApiKeyAuthorization) {
-            $this->header->setParameters(array_merge(
-                    $this->header->getParameters(),
-                    [new Parameter($this->authorization->getKey(), $this->authorization->getValue())])
-            );
-        }
-//        } elseif ($this->authorization instanceof BearerTokenAuthorization) {
-//            $response = $response->withToken($this->authorization->getToken());
-//        }
-
-        $response = $client->request($this->getMethod(),$url,['headers' => $this->getHeader()->getParameters(true)]);
-
-        //$response = $response->withHeaders($this->getHeader()->getParameters(true));
+//    public function run() : String {
+//        $client = new Client();
+//        $url = $this->getUrl()->get();
+//        $bodyRaw = ($this->getBody()) ? $this->getBody()->get() : null;
 //
-//        if($this->getMethod() == "GET")
-//            $response = $response->get($url);
-//        elseif($this->getMethod() == 'POST')
-//            $response = $response->post($url);
+//
+////        if($bodyRaw)
+////            $response = $response->withBody($bodyRaw,$this->getBody()->getContentType());
+//
+//
+//        //$headers = array_merge($this->header->getParameters(true),$this->authorization->getParameters(true));
+//        if($this->authorization instanceof BasicAuthorization) {
+//            $credentials = base64_encode($this->authorization->getUserName().":".$this->authorization->getPassword());
+//            $this->header->setParameters(array_merge(
+//                    $this->header->getParameters(),
+//                    [new Parameter("Authorization","Basic ".$credentials)])
+//            );
+//            //$response = $response->withBasicAuth($this->authorization->getUserName(),$this->authorization->getPassword());
+//        } elseif ($this->authorization instanceof ApiKeyAuthorization) {
+//            $this->header->setParameters(array_merge(
+//                    $this->header->getParameters(),
+//                    [new Parameter($this->authorization->getKey(), $this->authorization->getValue())])
+//            );
+//        }
+////        } elseif ($this->authorization instanceof BearerTokenAuthorization) {
+////            $response = $response->withToken($this->authorization->getToken());
+////        }
+//
+//        $response = $client->request($this->getMethod(),$url,['headers' => $this->getHeader()->getParameters(true)]);
+//
+//        //$response = $response->withHeaders($this->getHeader()->getParameters(true));
+////
+////        if($this->getMethod() == "GET")
+////            $response = $response->get($url);
+////        elseif($this->getMethod() == 'POST')
+////            $response = $response->post($url);
+//
+//     return $response->getBody();
+//    }
 
-     return $response->getBody();
-    }
-
-    public function runWithCurl() {
+    public function run() : String {
             $ch = curl_init();
             $url = $this->getUrl()->get();
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -98,7 +98,7 @@ abstract class BaseRequest
                 throw new \Exception("Trendyol boş yanıt döndürdü.");
             }
 
-            $response = json_decode($response);
+            //$response = json_decode($response);
             curl_close($ch);
             return $response;
         }
