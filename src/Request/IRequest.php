@@ -1,8 +1,8 @@
 <?php
 
-namespace Serkancelik17\ApiBase\Request;
+namespace Entegrator\ApiBase\Request;
 
-use Serkancelik17\ApiBase\Request\Authorization\IAuthorization;
+use Entegrator\ApiBase\Request\Authorization\IAuthorization;
 
 interface IRequest
 {

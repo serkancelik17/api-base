@@ -1,8 +1,8 @@
 <?php
 
-namespace Serkancelik17\ApiBase\Request\Body;
+namespace Entegrator\ApiBase\Request\Body;
 
-use Serkancelik17\ApiBase\Parameter;
+use Entegrator\ApiBase\Parameter;
 
 class RawBody implements IBody
 {

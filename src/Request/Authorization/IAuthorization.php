@@ -1,5 +1,5 @@
 <?php
-namespace Serkancelik17\ApiBase\Request\Authorization;
+namespace Entegrator\ApiBase\Request\Authorization;
 
 interface IAuthorization
 {

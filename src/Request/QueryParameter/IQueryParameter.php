@@ -1,6 +1,6 @@
 <?php
 
-namespace Serkancelik17\ApiBase\Request\QueryParameter;
+namespace Entegrator\ApiBase\Request\QueryParameter;
 
 interface IQueryParameter
 {

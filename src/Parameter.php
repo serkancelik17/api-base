@@ -1,6 +1,6 @@
 <?php
 
-namespace Serkancelik17\ApiBase;
+namespace Entegrator\ApiBase;
 
 class Parameter
 {

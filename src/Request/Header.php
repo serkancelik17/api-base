@@ -1,9 +1,9 @@
 <?php
 
-namespace Serkancelik17\ApiBase\Request;
+namespace Entegrator\ApiBase\Request;
 
 
-use Serkancelik17\ApiBase\Parameter;
+use Entegrator\ApiBase\Parameter;
 
 class Header {
     /** @var Parameter[] */

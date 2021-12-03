@@ -1,6 +1,6 @@
 <?php
 
-namespace Serkancelik17\ApiBase\Request;
+namespace Entegrator\ApiBase\Request;
 
 class Http
 {

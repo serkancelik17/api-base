@@ -1,6 +1,6 @@
 <?php
 
-namespace Serkancelik17\ApiBase\Request\Authorization;
+namespace Entegrator\ApiBase\Request\Authorization;
 
 class BearerTokenAuthorization implements IAuthorization
 {

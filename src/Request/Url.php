@@ -1,8 +1,8 @@
 <?php
 
-namespace Serkancelik17\ApiBase\Request;
+namespace Entegrator\ApiBase\Request;
 
-use Serkancelik17\ApiBase\Request\QueryParameter\IQueryParameter;
+use Entegrator\ApiBase\Request\QueryParameter\IQueryParameter;
 
 class Url
 {
@@ -94,7 +94,7 @@ class Url
     }
 
 
-    public function get() {
+    public function __toString() : string {
         $queryParameter = strlen($this->queryParameter) ? "?".$this->getQueryParameter() : null;
         $url = $this->getUrl().(($this->getPrefix()) ? $this->getPrefix() : null).$this->getEndPoint().$queryParameter;
         print_r($url);

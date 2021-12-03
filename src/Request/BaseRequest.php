@@ -1,13 +1,13 @@
 <?php
-namespace Serkancelik17\ApiBase\Request;
+namespace Entegrator\ApiBase\Request;
 
-use Serkancelik17\ApiBase\Request\Body\IBody;
+use Entegrator\ApiBase\Request\Body\IBody;
 use GuzzleHttp\Client;
-use Serkancelik17\ApiBase\Parameter;
-use Serkancelik17\ApiBase\Request\Authorization\ApiKeyAuthorization;
-use Serkancelik17\ApiBase\Request\Authorization\BasicAuthorization;
-use Serkancelik17\ApiBase\Request\Authorization\BearerTokenAuthorization;
-use Serkancelik17\ApiBase\Request\Authorization\IAuthorization;
+use Entegrator\ApiBase\Parameter;
+use Entegrator\ApiBase\Request\Authorization\ApiKeyAuthorization;
+use Entegrator\ApiBase\Request\Authorization\BasicAuthorization;
+use Entegrator\ApiBase\Request\Authorization\BearerTokenAuthorization;
+use Entegrator\ApiBase\Request\Authorization\IAuthorization;
 
 abstract class BaseRequest
 {
@@ -67,8 +67,7 @@ abstract class BaseRequest
 
     public function run() : String {
             $ch = curl_init();
-            $url = $this->getUrl()->get();
-            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_URL, $this->getUrl());
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->method);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_HEADER, false);
@@ -85,7 +84,7 @@ abstract class BaseRequest
             curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
             $response = trim(curl_exec($ch));
             if (empty($response)) {
-                throw new \Exception("TrendyolService boş yanıt döndürdü.");
+                throw new \Exception("ServiceAbstract boş yanıt döndürdü.");
             }
 
             //$response = json_decode($response);
