@@ -96,7 +96,7 @@ class Url
 
     public function get() {
         $queryParameter = strlen($this->queryParameter) ? "?".$this->getQueryParameter() : null;
-        $url = $this->getUrl()."/".(($this->getPrefix()) ? $this->getPrefix()."/" : null).$this->getEndPoint().$queryParameter;
+        $url = $this->getUrl().(($this->getPrefix()) ? $this->getPrefix() : null).$this->getEndPoint().$queryParameter;
         print_r($url);
         return $url;
     }

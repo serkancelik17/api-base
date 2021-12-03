@@ -25,16 +25,6 @@ abstract class BaseRequest
     private IBody|null $body = null;
     private bool $debug = true;
 
-    public function __construct(Header $header,IAuthorization $authorization,Url $url, IBody $body = null)
-    {
-        $this->setHeader($header);
-        $this->setAuthorization($authorization);
-        $this->setUrl($url);
-        if($body)
-            $this->setBody($body);
-    }
-
-
 //    public function run() : String {
 //        $client = new Client();
 //        $url = $this->getUrl()->get();
@@ -95,7 +85,7 @@ abstract class BaseRequest
             curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
             $response = trim(curl_exec($ch));
             if (empty($response)) {
-                throw new \Exception("Trendyol boş yanıt döndürdü.");
+                throw new \Exception("TrendyolService boş yanıt döndürdü.");
             }
 
             //$response = json_decode($response);
