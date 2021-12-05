@@ -2,7 +2,10 @@
 
 namespace Entegrator\ApiBase\Request\Authorization;
 
-class BasicAuthorization  extends AuthorizationAbstract implements IAuthorization
+use Entegrator\ApiBase\Abstracts\AuthorizationAbstract;
+use Entegrator\ApiBase\Interfaces\AuthorizationInterface;
+
+class BasicAuthorization  extends AuthorizationAbstract implements AuthorizationInterface
 {
     private string $userName;
     private string $password;
@@ -30,7 +33,7 @@ class BasicAuthorization  extends AuthorizationAbstract implements IAuthorizatio
      * @param string $userName
      * @return BasicAuthorization
      */
-    public function setUserName(string $userName): BasicAuthorization
+    public function setUserName(string $userName): self
     {
         $this->userName = $userName;
         return $this;
@@ -48,7 +51,7 @@ class BasicAuthorization  extends AuthorizationAbstract implements IAuthorizatio
      * @param string $password
      * @return BasicAuthorization
      */
-    public function setPassword(string $password): BasicAuthorization
+    public function setPassword(string $password): self
     {
         $this->password = $password;
         return $this;

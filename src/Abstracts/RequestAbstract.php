@@ -1,28 +1,26 @@
 <?php
-namespace Entegrator\ApiBase\Request;
+namespace Entegrator\ApiBase\Abstracts;
 
-use Entegrator\ApiBase\Request\Body\IBody;
-use GuzzleHttp\Client;
+use Entegrator\ApiBase\Interfaces\BodyInterface;
 use Entegrator\ApiBase\Parameter;
-use Entegrator\ApiBase\Request\Authorization\ApiKeyAuthorization;
-use Entegrator\ApiBase\Request\Authorization\BasicAuthorization;
-use Entegrator\ApiBase\Request\Authorization\BearerTokenAuthorization;
-use Entegrator\ApiBase\Request\Authorization\IAuthorization;
+use Entegrator\ApiBase\Interfaces\AuthorizationInterface;
+use Entegrator\ApiBase\Request\Header;
+use Entegrator\ApiBase\Request\Url;
 
-abstract class BaseRequest
+abstract class RequestAbstract
 {
 
     /** @var Parameter[] $parameters */
     private array $parameters = [];
     /** @var Header $header */
     private Header $header;
-    /** @var IAuthorization $authorization */
-    private IAuthorization $authorization;
+    /** @var AuthorizationInterface $authorization */
+    private AuthorizationInterface $authorization;
     /** @var string $method */
     private string $method = 'GET';
     /** @var Url $url */
     private Url $url;
-    private IBody|null $body = null;
+    private BodyInterface|null $body = null;
     private bool $debug = true;
 
 //    public function run() : String {
@@ -36,20 +34,20 @@ abstract class BaseRequest
 //
 //
 //        //$headers = array_merge($this->header->getParameters(true),$this->authorization->getParameters(true));
-//        if($this->authorization instanceof BasicAuthorization) {
+//        if($this->authorization instanceof BasicAuthorizationInterface) {
 //            $credentials = base64_encode($this->authorization->getUserName().":".$this->authorization->getPassword());
 //            $this->header->setParameters(array_merge(
 //                    $this->header->getParameters(),
 //                    [new Parameter("Authorization","Basic ".$credentials)])
 //            );
 //            //$response = $response->withBasicAuth($this->authorization->getUserName(),$this->authorization->getPassword());
-//        } elseif ($this->authorization instanceof ApiKeyAuthorization) {
+//        } elseif ($this->authorization instanceof ApiKeyAuthorizationInterface) {
 //            $this->header->setParameters(array_merge(
 //                    $this->header->getParameters(),
 //                    [new Parameter($this->authorization->getKey(), $this->authorization->getValue())])
 //            );
 //        }
-////        } elseif ($this->authorization instanceof BearerTokenAuthorization) {
+////        } elseif ($this->authorization instanceof BearerTokenAuthorizationInterface) {
 ////            $response = $response->withToken($this->authorization->getToken());
 ////        }
 //
@@ -104,9 +102,9 @@ abstract class BaseRequest
 
     /**
      * @param Parameter[] $parameters
-     * @return BaseRequest
+     * @return RequestAbstract
      */
-    public function setParameters(array $parameters): BaseRequest
+    public function setParameters(array $parameters): RequestAbstract
     {
         $this->parameters = $parameters;
         return $this;
@@ -122,27 +120,27 @@ abstract class BaseRequest
 
     /**
      * @param Header $header
-     * @return BaseRequest
+     * @return RequestAbstract
      */
-    public function setHeader(Header $header): BaseRequest
+    public function setHeader(Header $header): RequestAbstract
     {
         $this->header = $header;
         return $this;
     }
 
     /**
-     * @return IAuthorization
+     * @return AuthorizationInterface
      */
-    public function getAuthorization(): IAuthorization
+    public function getAuthorization(): AuthorizationInterface
     {
         return $this->authorization;
     }
 
     /**
-     * @param IAuthorization $authorization
-     * @return BaseRequest
+     * @param AuthorizationInterface $authorization
+     * @return RequestAbstract
      */
-    public function setAuthorization(IAuthorization $authorization): BaseRequest
+    public function setAuthorization(AuthorizationInterface $authorization): RequestAbstract
     {
         $this->authorization = $authorization;
         return $this;
@@ -158,9 +156,9 @@ abstract class BaseRequest
 
     /**
      * @param string $method
-     * @return BaseRequest
+     * @return RequestAbstract
      */
-    public function setMethod(string $method): BaseRequest
+    public function setMethod(string $method): RequestAbstract
     {
         $this->method = $method;
         return $this;
@@ -176,27 +174,27 @@ abstract class BaseRequest
 
     /**
      * @param Url $url
-     * @return BaseRequest
+     * @return RequestAbstract
      */
-    public function setUrl(Url $url): BaseRequest
+    public function setUrl(Url $url): RequestAbstract
     {
         $this->url = $url;
         return $this;
     }
 
     /**
-     * @return IBody
+     * @return BodyInterface
      */
-    public function getBody(): IBody|null
+    public function getBody(): BodyInterface|null
     {
         return $this->body;
     }
 
     /**
-     * @param IBody $body
-     * @return BaseRequest
+     * @param BodyInterface $body
+     * @return RequestAbstract
      */
-    public function setBody(IBody $body): BaseRequest
+    public function setBody(BodyInterface $body): RequestAbstract
     {
         $this->body = $body;
         return $this;

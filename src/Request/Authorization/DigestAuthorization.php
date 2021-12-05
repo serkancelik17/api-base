@@ -2,7 +2,10 @@
 
 namespace Entegrator\ApiBase\Request\Authorization;
 
-class DigestAuthorization  extends AuthorizationAbstract implements IAuthorization
+use Entegrator\ApiBase\Abstracts\AuthorizationAbstract;
+use Entegrator\ApiBase\Interfaces\AuthorizationInterface;
+
+class DigestAuthorization  extends AuthorizationAbstract implements AuthorizationInterface
 {
     private string $userName;
     private string $password;
@@ -28,9 +31,9 @@ class DigestAuthorization  extends AuthorizationAbstract implements IAuthorizati
 
     /**
      * @param string $userName
-     * @return BasicAuthorization
+     * @return DigestAuthorization
      */
-    public function setUserName(string $userName): BasicAuthorization
+    public function setUserName(string $userName): self
     {
         $this->userName = $userName;
         return $this;
@@ -46,9 +49,9 @@ class DigestAuthorization  extends AuthorizationAbstract implements IAuthorizati
 
     /**
      * @param string $password
-     * @return BasicAuthorization
+     * @return DigestAuthorization
      */
-    public function setPassword(string $password): BasicAuthorization
+    public function setPassword(string $password): self
     {
         $this->password = $password;
         return $this;

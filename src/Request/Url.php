@@ -2,7 +2,7 @@
 
 namespace Entegrator\ApiBase\Request;
 
-use Entegrator\ApiBase\Request\QueryParameter\IQueryParameter;
+use Entegrator\ApiBase\Interfaces\QueryParameterInterface;
 
 class Url
 {
@@ -10,13 +10,13 @@ class Url
     private string $url;
     private string $endPoint;
     private string|null $prefix;
-    private IQueryParameter|null $queryParameter;
+    private QueryParameterInterface|null $queryParameter;
 
     /**
      * @param string $url
      * @param string $endPoint
      */
-    public function __construct(string $url,string $endPoint,string $prefix=null,IQueryParameter $queryParameter = null)
+    public function __construct(string $url, string $endPoint, string $prefix=null, QueryParameterInterface $queryParameter = null)
     {
         $this->url = $url;
         $this->prefix = $prefix;
@@ -60,16 +60,16 @@ class Url
         return $this;
     }
 
-    public function getQueryParameter(): IQueryParameter|null
+    public function getQueryParameter(): QueryParameterInterface|null
     {
         return $this->queryParameter;
     }
 
     /**
-     * @param IQueryParameter $queryParameter
+     * @param QueryParameterInterface $queryParameter
      * @return Url
      */
-    public function setQueryParameter(IQueryParameter $queryParameter): Url
+    public function setQueryParameter(QueryParameterInterface $queryParameter): Url
     {
         $this->queryParameter = $queryParameter;
         return $this;

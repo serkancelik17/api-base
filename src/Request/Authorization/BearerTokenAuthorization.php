@@ -2,7 +2,9 @@
 
 namespace Entegrator\ApiBase\Request\Authorization;
 
-class BearerTokenAuthorization implements IAuthorization
+use Entegrator\ApiBase\Interfaces\AuthorizationInterface;
+
+class BearerTokenAuthorization implements AuthorizationInterface
 {
     private string $token;
     private string $username;
@@ -26,7 +28,7 @@ class BearerTokenAuthorization implements IAuthorization
      * @param string $token
      * @return BearerTokenAuthorization
      */
-    public function setToken(string $token): BearerTokenAuthorization
+    public function setToken(string $token): self
     {
         $this->token = $token;
         return $this;
@@ -44,7 +46,7 @@ class BearerTokenAuthorization implements IAuthorization
      * @param string $username
      * @return BearerTokenAuthorization
      */
-    public function setUsername(string $username): BearerTokenAuthorization
+    public function setUsername(string $username): self
     {
         $this->username = $username;
         return $this;
@@ -62,7 +64,7 @@ class BearerTokenAuthorization implements IAuthorization
      * @param string $password
      * @return BearerTokenAuthorization
      */
-    public function setPassword(string $password): BearerTokenAuthorization
+    public function setPassword(string $password): self
     {
         $this->password = $password;
         return $this;

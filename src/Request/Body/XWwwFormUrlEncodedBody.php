@@ -5,7 +5,7 @@ namespace Entegrator\ApiBase\Request\Body;
 
 use Entegrator\ApiBase\Parameter;
 
-class XWwwFormUrlEncodedBody extends RawBody implements IBody
+class XWwwFormUrlEncodedBody extends RawBody implements BodyInterface
 {
 
     private string $contentType = 'application/x-www-form-urlencoded';

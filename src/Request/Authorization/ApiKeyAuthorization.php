@@ -2,7 +2,10 @@
 
 namespace Entegrator\ApiBase\Request\Authorization;
 
-class ApiKeyAuthorization  extends AuthorizationAbstract implements IAuthorization
+use Entegrator\ApiBase\Abstracts\AuthorizationAbstract;
+use Entegrator\ApiBase\Interfaces\AuthorizationInterface;
+
+class ApiKeyAuthorization  extends AuthorizationAbstract implements AuthorizationInterface
 {
     private string $key;
     private string $value;
@@ -30,7 +33,7 @@ class ApiKeyAuthorization  extends AuthorizationAbstract implements IAuthorizati
      * @param string $key
      * @return BasicAuthorization
      */
-    public function setKey(string $key): IAuthorization
+    public function setKey(string $key): self
     {
         $this->key = $key;
         return $this;
@@ -48,7 +51,7 @@ class ApiKeyAuthorization  extends AuthorizationAbstract implements IAuthorizati
      * @param string $value
      * @return BasicAuthorization
      */
-    public function setValue(string $value): IAuthorization
+    public function setValue(string $value): self
     {
         $this->value = $value;
         return $this;

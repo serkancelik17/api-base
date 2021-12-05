@@ -4,7 +4,7 @@ namespace Entegrator\ApiBase\Request\Body;
 
 use Entegrator\ApiBase\Parameter;
 
-class RawBody implements IBody
+class RawBody implements BodyInterface
 {
     private string $contentType = 'text/json';
     /**
