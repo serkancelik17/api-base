@@ -82,7 +82,7 @@ abstract class RequestAbstract
             curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
             $response = trim(curl_exec($ch));
             if (empty($response)) {
-                throw new \Exception("ServiceAbstract boş yanıt döndürdü.");
+                throw new \Exception("Trendyol boş yanıt döndürdü.");
             }
 
             //$response = json_decode($response);
