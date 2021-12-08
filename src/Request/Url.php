@@ -95,7 +95,8 @@ class Url
 
 
     public function __toString() : string {
-        $queryParameter = strlen($this->queryParameter) ? "?".$this->getQueryParameter() : null;
+        $queryParameterString = (string) $this->queryParameter;
+        $queryParameter = strlen($queryParameterString) ? "?".$queryParameterString : null;
         $url = $this->getUrl().(($this->getPrefix()) ? $this->getPrefix() : null).$this->getEndPoint().$queryParameter;
         print_r($url);
         return $url;
