@@ -3,14 +3,14 @@ namespace Entegrator\ApiBase\Abstracts;
 
 
 use Entegrator\ApiBase\Response\Util;
+use Entegrator\TrendyolApi\V1\Interfaces\RequestInterface;
 
 abstract class ResponseAbstract
 {
     Use Util;
 
-    public function __construct(RequestAbstract $request)
+    public function __construct(RequestInterface $request)
     {
-
         $body = $request->run();
 
         $data = json_decode($body, true);

@@ -2,12 +2,13 @@
 namespace Entegrator\ApiBase\Abstracts;
 
 use Entegrator\ApiBase\Interfaces\BodyInterface;
+use Entegrator\ApiBase\Interfaces\RequestInterface;
 use Entegrator\ApiBase\Parameter;
 use Entegrator\ApiBase\Interfaces\AuthorizationInterface;
 use Entegrator\ApiBase\Request\Header;
 use Entegrator\ApiBase\Request\Url;
 
-abstract class RequestAbstract
+abstract class RequestAbstract implements RequestInterface
 {
 
     /** @var Parameter[] $parameters */
